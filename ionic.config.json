@@ -1,0 +1,14 @@
+{
+  "name": "myTodo",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  },
+  "proxies": [
+    {
+      "path": "/name",
+      "proxyUrl": "http://meanstack-todo.herokuapp.com/api/name"
+    }
+  ]
+}

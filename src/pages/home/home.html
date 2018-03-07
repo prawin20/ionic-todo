@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+     <h1> Ionic Todo</h1>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding text-center  [hidden]="tasks && tasks.length > 0">
+  <ion-grid>
+    <ion-row>
+      <ion-col >
+        No item has been added. Use the "+" button below to add a new item.
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-content >  
+	<ion-card *ngFor="let todo of todos" color="primary">	
+	<ion-row>
+		<ion-col>
+			<ion-icon name="attach" item-left></ion-icon>
+		</ion-col>
+		<ion-col text-center>
+			<h1 ion-text color="light">{{todo.name}}</h1>
+		</ion-col>
+		<ion-col text-right>
+			<button ion-button color="light" clear round (click)="remove(todo._id)"><ion-icon name="trash"></ion-icon></button>
+		</ion-col>
+	</ion-row>
+	</ion-card>	
+<ion-fab center bottom>  
+      <button ion-fab color="danger" (click)="showPrompt()"><ion-icon name="add"></ion-icon></button>  
+</ion-fab>
+</ion-content>
