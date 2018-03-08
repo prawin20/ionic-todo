@@ -8,7 +8,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class TodoService{
 	todos:Todo[];
-	url="/name";
+	url="http://meanstack-todo.herokuapp.com/api/name";
 	constructor(private http:Http){
 
 	}
