@@ -3,11 +3,13 @@ var app = express();
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var cros = require('cors');
+var proxy = require('http-proxy-middleware');
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({'extended':'true'}));
 app.use(bodyParser.json());
 app.use(cros());
+app.use('/name', proxy({target:'http://meanstack-todo.herokuapp.com/api', changeOrigin:true,proxyTimeout:100000}));
 
 app.use(function(req,res,next) {
 	res.header("Access-Control-Allow-Origin", "*");
